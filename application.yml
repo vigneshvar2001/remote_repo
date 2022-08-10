@@ -13,4 +13,17 @@ eureka:
     
 spring:
  application:
-  name: PRODUCT-SERVICE
+  name: API-GATEWAY
+
+ cloud:
+    gateway:
+      routes:
+      
+      - id: PRODUCT-SERVICE                   #http://localhost:8181/api/v1/department
+        uri: lb://PRODUCT-SERVICE
+        predicates:
+        - Path=/product/**
+      
+     
+      
+
